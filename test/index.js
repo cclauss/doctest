@@ -77,18 +77,18 @@ function testCommand(command, expected) {
 
 const moduleTests = Promise.all ([
   testModule ('test/shared/index.js', {silent: true}),
-  // testModule ('test/shared/index.coffee', {silent: true}),
+  testModule ('test/shared/index.coffee', {silent: true}),
   testModule ('test/line-endings/CR.js', {silent: true}),
-  // testModule ('test/line-endings/CR.coffee', {silent: true}),
+  testModule ('test/line-endings/CR.coffee', {silent: true}),
   testModule ('test/line-endings/CR+LF.js', {silent: true}),
-  // testModule ('test/line-endings/CR+LF.coffee', {silent: true}),
+  testModule ('test/line-endings/CR+LF.coffee', {silent: true}),
   testModule ('test/line-endings/LF.js', {silent: true}),
-  // testModule ('test/line-endings/LF.coffee', {silent: true}),
+  testModule ('test/line-endings/LF.coffee', {silent: true}),
   testModule ('test/exceptions/index.js', {silent: true}),
   testModule ('test/statements/index.js', {silent: true}),
   testModule ('test/fantasy-land/index.js', {silent: true}),
   testModule ('test/transcribe/index.js', {prefix: '.', openingDelimiter: '```javascript', closingDelimiter: '```', silent: true}),
-  // testModule ('test/transcribe/index.coffee', {prefix: '.', openingDelimiter: '```coffee', closingDelimiter: '```', silent: true}),
+  testModule ('test/transcribe/index.coffee', {prefix: '.', openingDelimiter: '```coffee', closingDelimiter: '```', silent: true}),
   testModule ('test/amd/index.js', {module: 'amd', silent: true}),
   testModule ('test/commonjs/require/index.js', {module: 'commonjs', silent: true}),
   testModule ('test/commonjs/exports/index.js', {module: 'commonjs', silent: true}),
@@ -144,19 +144,19 @@ testCommand ('bin/doctest test/shared/index.js', {
   stderr: ''
 });
 
-// testCommand ('bin/doctest test/shared/index.coffee', {
-//   status: 1,
-//   stdout: unlines ([
-//     'running doctests in test/shared/index.coffee...',
-//     '......x.x...........x........x',
-//     'FAIL: expected 5 on line 31 (got 4)',
-//     'FAIL: expected ! TypeError on line 38 (got 0)',
-//     'FAIL: expected 9.5 on line 97 (got 5)',
-//     'FAIL: expected "on automatic semicolon insertion" on line 155 ' +
-//       '(got "the rewriter should not rely")'
-//   ]),
-//   stderr: ''
-// });
+testCommand ('bin/doctest test/shared/index.coffee', {
+  status: 1,
+  stdout: unlines ([
+    'running doctests in test/shared/index.coffee...',
+    '......x.x...........x........x',
+    'FAIL: expected 5 on line 31 (got 4)',
+    'FAIL: expected ! TypeError on line 38 (got 0)',
+    'FAIL: expected 9.5 on line 97 (got 5)',
+    'FAIL: expected "on automatic semicolon insertion" on line 155 ' +
+      '(got "the rewriter should not rely")'
+  ]),
+  stderr: ''
+});
 
 // testCommand ('bin/doctest test/shared/index.js test/shared/index.coffee', {
 //   status: 1,
