@@ -244,10 +244,20 @@ if (esmSupported) {
     status: 1,
     stdout: unlines ([
       'running doctests in test/esm/async.mjs...',
-      'xxx',
+      'xxxx',
       'FAIL: expected 1 on line 4 (got ! ReferenceError: log is not defined)',
       'FAIL: expected 3 on line 4 (got no output)',
+      'FAIL: expected undefined on line 4 (got no output)',
       'FAIL: expected 2 on line 4 (got no output)'
+    ]),
+    stderr: ''
+  });
+
+  testCommand ('bin/doctest --module esm --log-function log test/esm/async.mjs', {
+    status: 0,
+    stdout: unlines ([
+      'running doctests in test/esm/async.mjs...',
+      '....'
     ]),
     stderr: ''
   });
