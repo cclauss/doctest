@@ -202,6 +202,15 @@ testCommand ('bin/doctest --type js test/bin/executable', {
   stderr: ''
 });
 
+testCommand ('bin/doctest --log-function log test/shared/async.js', {
+  status: 0,
+  stdout: unlines ([
+    'running doctests in test/shared/async.js...',
+    '....'
+  ]),
+  stderr: ''
+});
+
 testCommand ('bin/doctest --module commonjs --log-function log test/shared/async.js', {
   status: 0,
   stdout: unlines ([
