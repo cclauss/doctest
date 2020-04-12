@@ -220,6 +220,15 @@ testCommand ('bin/doctest --module commonjs --log-function log test/shared/async
   stderr: ''
 });
 
+testCommand ('bin/doctest --log-function log test/shared/async.coffee', {
+  status: 0,
+  stdout: unlines ([
+    'running doctests in test/shared/async.coffee...',
+    '....'
+  ]),
+  stderr: ''
+});
+
 testCommand ('bin/doctest --module commonjs lib/doctest.js', {
   status: 0,
   stdout: unlines ([
