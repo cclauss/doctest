@@ -202,14 +202,14 @@ testCommand ('bin/doctest --type js test/bin/executable', {
   stderr: ''
 });
 
-// testCommand ('bin/doctest --module commonjs lib/doctest.js', {
-//   status: 0,
-//   stdout: unlines ([
-//     'running doctests in lib/doctest.js...',
-//     '......'
-//   ]),
-//   stderr: ''
-// });
+testCommand ('bin/doctest --module commonjs lib/doctest.js', {
+  status: 0,
+  stdout: unlines ([
+    'running doctests in lib/doctest.js...',
+    '......'
+  ]),
+  stderr: ''
+});
 
 if (esmSupported) {
   testCommand ('bin/doctest --module esm test/esm/index.mjs', {
