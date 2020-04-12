@@ -90,10 +90,10 @@ const moduleTests = Promise.all ([
   testModule ('test/transcribe/index.js', {prefix: '.', openingDelimiter: '```javascript', closingDelimiter: '```', silent: true}),
   // testModule ('test/transcribe/index.coffee', {prefix: '.', openingDelimiter: '```coffee', closingDelimiter: '```', silent: true}),
   testModule ('test/amd/index.js', {module: 'amd', silent: true}),
-  // testModule ('test/commonjs/require/index.js', {module: 'commonjs', silent: true}),
-  // testModule ('test/commonjs/exports/index.js', {module: 'commonjs', silent: true}),
-  // testModule ('test/commonjs/module.exports/index.js', {module: 'commonjs', silent: true}),
-  // testModule ('test/commonjs/strict/index.js', {module: 'commonjs', silent: true}),
+  testModule ('test/commonjs/require/index.js', {module: 'commonjs', silent: true}),
+  testModule ('test/commonjs/exports/index.js', {module: 'commonjs', silent: true}),
+  testModule ('test/commonjs/module.exports/index.js', {module: 'commonjs', silent: true}),
+  testModule ('test/commonjs/strict/index.js', {module: 'commonjs', silent: true}),
   testModule ('test/bin/executable', {type: 'js', silent: true}),
   testModule ('test/harmony/index.js', {silent: true})
 ]);
