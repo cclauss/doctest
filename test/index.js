@@ -202,6 +202,15 @@ testCommand ('bin/doctest --type js test/bin/executable', {
   stderr: ''
 });
 
+testCommand ('bin/doctest --module commonjs --log-function log test/shared/async.js', {
+  status: 0,
+  stdout: unlines ([
+    'running doctests in test/shared/async.js...',
+    '....'
+  ]),
+  stderr: ''
+});
+
 testCommand ('bin/doctest --module commonjs lib/doctest.js', {
   status: 0,
   stdout: unlines ([
@@ -352,7 +361,8 @@ testCommand ('bin/doctest --print --module commonjs test/commonjs/exports/index.
     '  var __doctest = {',
     '    require: require,',
     '    queue: [],',
-    '    enqueue: function(io) { this.queue.push(io); }',
+    '    enqueue: function(io) { this.queue.push(io); },',
+    '    logMediator: {emit: function() {}}',
     '  };',
     '',
     '  void function() {',
