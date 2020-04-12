@@ -158,26 +158,26 @@ testCommand ('bin/doctest test/shared/index.coffee', {
   stderr: ''
 });
 
-// testCommand ('bin/doctest test/shared/index.js test/shared/index.coffee', {
-//   status: 1,
-//   stdout: unlines ([
-//     'running doctests in test/shared/index.js...',
-//     '......x.x...........x........x',
-//     'FAIL: expected 5 on line 31 (got 4)',
-//     'FAIL: expected ! TypeError on line 38 (got 0)',
-//     'FAIL: expected 9.5 on line 97 (got 5)',
-//     'FAIL: expected "on automatic semicolon insertion" on line 155 ' +
-//       '(got "the rewriter should not rely")',
-//     'running doctests in test/shared/index.coffee...',
-//     '......x.x...........x........x',
-//     'FAIL: expected 5 on line 31 (got 4)',
-//     'FAIL: expected ! TypeError on line 38 (got 0)',
-//     'FAIL: expected 9.5 on line 97 (got 5)',
-//     'FAIL: expected "on automatic semicolon insertion" on line 155 ' +
-//       '(got "the rewriter should not rely")'
-//   ]),
-//   stderr: ''
-// });
+testCommand ('bin/doctest test/shared/index.js test/shared/index.coffee', {
+  status: 1,
+  stdout: unlines ([
+    'running doctests in test/shared/index.js...',
+    '......x.x...........x........x',
+    'FAIL: expected 5 on line 31 (got 4)',
+    'FAIL: expected ! TypeError on line 38 (got 0)',
+    'FAIL: expected 9.5 on line 97 (got 5)',
+    'FAIL: expected "on automatic semicolon insertion" on line 155 ' +
+      '(got "the rewriter should not rely")',
+    'running doctests in test/shared/index.coffee...',
+    '......x.x...........x........x',
+    'FAIL: expected 5 on line 31 (got 4)',
+    'FAIL: expected ! TypeError on line 38 (got 0)',
+    'FAIL: expected 9.5 on line 97 (got 5)',
+    'FAIL: expected "on automatic semicolon insertion" on line 155 ' +
+      '(got "the rewriter should not rely")'
+  ]),
+  stderr: ''
+});
 
 testCommand ('bin/doctest --silent test/shared/index.js', {
   status: 1,
