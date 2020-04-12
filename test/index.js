@@ -239,6 +239,18 @@ if (esmSupported) {
     ]),
     stderr: ''
   });
+
+  testCommand ('bin/doctest --module esm test/esm/async.mjs', {
+    status: 1,
+    stdout: unlines ([
+      'running doctests in test/esm/async.mjs...',
+      'xxx',
+      'FAIL: expected 1 on line 4 (got ! ReferenceError: log is not defined)',
+      'FAIL: expected 3 on line 4 (got no output)',
+      'FAIL: expected 2 on line 4 (got no output)'
+    ]),
+    stderr: ''
+  });
 } else {
   testCommand ('bin/doctest --module esm test/esm/index.mjs', {
     status: 1,
